@@ -4,6 +4,6 @@ spring:
       server:
         git:
           uri: https://gitee.com/wjh136/config
-          password: wangjunhao1369
+          password: wangjunhao
           username: wjh136
           search-paths: /cloud
