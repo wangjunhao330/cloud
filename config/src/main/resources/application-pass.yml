@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/wjh136/config
+          password: wangjunhao1369
+          username: wjh136
+          search-paths: /cloud

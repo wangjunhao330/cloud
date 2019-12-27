@@ -1,0 +1,7 @@
+server:
+  port: 38080
+spring:
+  profiles:
+    include: pass
+  application:
+    name: config-server

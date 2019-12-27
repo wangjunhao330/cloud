@@ -12,7 +12,6 @@ target/
 .settings
 .springBeans
 .sts4-cache
-
 ### IntelliJ IDEA ###
 .idea
 *.iws
@@ -29,3 +28,4 @@ build/
 
 ### VS Code ###
 .vscode/
+!/src/main/resources/application-pass.yml
