@@ -32,15 +32,11 @@ public class JwtUtils {
      * @param receiver
      * @param custom
      * @param subjet
-     * @param issuer
-     * @param issuedTime
-     * @param notBeforeTime
-     * @param expireTime
      * @return java.lang.String
      * @date 2019/12/27 17:39
      * @author wangjunhao
      **/
-    public static String createJwt(String jwtId, String receiver, Map<String, Object> custom, String subjet, String issuer, Date issuedTime, Date notBeforeTime, Date expireTime) {
+    public static String createJwt(String jwtId, String receiver, Map<String, Object> custom, String subjet) {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
         SecretKey secretKey = generateKey();
         long now = System.currentTimeMillis();
@@ -48,7 +44,9 @@ public class JwtUtils {
         JwtBuilder builder = Jwts
                 .builder()
                 .setId(jwtId)
+                .setSubject(subjet)
                 .setAudience(receiver)
+                .setIssuer(JwtConstant.issuser)
                 .setClaims(custom)
                 .setExpiration(date)
                 .setIssuedAt(new Date(now))
