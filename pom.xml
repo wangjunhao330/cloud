@@ -5,7 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.wang</groupId>
-    <artifactId>cloud</artifactId><packaging>pom</packaging>
+    <artifactId>cloud</artifactId>
+    <packaging>pom</packaging>
     <version>v1.0.0</version>
     <modules>
         <module>eureka-server</module>
@@ -14,15 +15,4 @@
         <module>config</module>
         <module>parent</module>
     </modules>
-    <dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Edgware.SR4</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 </project>
