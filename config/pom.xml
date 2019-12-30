@@ -12,7 +12,7 @@
 	<parent>
 		<groupId>com.wang</groupId>
 		<version>v1.0.0</version>
-		<artifactId>cloud</artifactId>
+		<artifactId>parent</artifactId>
 	</parent>
 	<properties>
 		<java.version>1.8</java.version>
@@ -37,10 +37,10 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.cloud</groupId>-->
+<!--			<artifactId>spring-cloud-starter-bus-amqp</artifactId>-->
+<!--		</dependency>-->
 	</dependencies>
 
 	<build>

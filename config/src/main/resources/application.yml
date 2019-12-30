@@ -5,3 +5,7 @@ spring:
     include: pass
   application:
     name: config-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:eureka1qaz@localhost:8761/eureka,http://eureka:eureka1qaz@localhost:8762/eureka
