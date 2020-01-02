@@ -1,6 +1,6 @@
-package com.wang.common.jwtUtils;
+package com.wang.authorize.jwtUtils;
 
-import com.wang.common.constant.JwtConstant;
+import com.wang.authorize.constant.JwtConstant;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
