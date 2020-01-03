@@ -8,6 +8,8 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
@@ -22,9 +24,12 @@ import java.util.Map;
  * @date 2019/12/27 16:32
  * @since JDK 1.8
  */
+@Service
 public class JwtUtils {
     Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
+    @Autowired
+    private JwtConstant jwtConstant;
     /**
      * 生成jwt工具类
      *
@@ -36,17 +41,17 @@ public class JwtUtils {
      * @date 2019/12/27 17:39
      * @author wangjunhao
      **/
-    public static String createJwt(String jwtId, String receiver, Map<String, Object> custom, String subjet) {
+    public String createJwt(String jwtId, String receiver, Map<String, Object> custom, String subjet) {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
         SecretKey secretKey = generateKey();
         long now = System.currentTimeMillis();
-        Date date = new Date(now + JwtConstant.expireTime);
+        Date date = new Date(now + jwtConstant.expireTime);
         JwtBuilder builder = Jwts
                 .builder()
                 .setId(jwtId)
                 .setSubject(subjet)
                 .setAudience(receiver)
-                .setIssuer(JwtConstant.issuser)
+                .setIssuer(jwtConstant.issuser)
                 .setClaims(custom)
                 .setExpiration(date)
                 .setIssuedAt(new Date(now))
@@ -62,12 +67,12 @@ public class JwtUtils {
      * @date 2019/12/27 17:45
      * @author wangjunhao
      **/
-    private static SecretKey generateKey() {
-        byte[] encodedKey = Base64.decodeBase64(JwtConstant.password);
+    private SecretKey generateKey() {
+        byte[] encodedKey = Base64.decodeBase64(jwtConstant.password);
         return new SecretKeySpec(encodedKey, 0, encodedKey.length, "AES");
     }
 
-    public static Claims parseJwt(String jwt) {
+    public Claims parseJwt(String jwt) {
         SecretKey key = generateKey();
         return Jwts.parser()
                 .setSigningKey(key)

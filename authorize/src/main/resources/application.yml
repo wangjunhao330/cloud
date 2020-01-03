@@ -1,6 +1,9 @@
 jwt:
   password: df;ajegfenfjdnbafdjiaonen;afgdadfk;ebvnke923384325n9cdnenNIH*W)#ND((CJWENDF
-  expire: 60*60*5*1000
+  expire: 7200000
   issuer: com.wang
 server:
   port: 38091
+spring:
+  application:
+    name: authorize

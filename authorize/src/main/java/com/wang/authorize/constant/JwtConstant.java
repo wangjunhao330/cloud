@@ -13,21 +13,20 @@ import org.springframework.stereotype.Component;
  * @since JDK 1.8
  */
 @Component
-@Data
 public class JwtConstant {
     /**
      * 秘钥
      */
     @Value("${jwt.password}")
-    public static String password;
+    public String password;
     /**
      * 过期时间
      */
     @Value("${jwt.expire}")
-    public static long expireTime;
+    public long expireTime;
     /**
      * 签发者
      */
     @Value("${jwt.issuer}")
-    public static String issuser;
+    public String issuser;
 }
