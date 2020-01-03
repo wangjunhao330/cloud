@@ -1,4 +1,4 @@
-package com.wang.common.constant;
+package com.wang.authorize.constant;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
