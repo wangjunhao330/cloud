@@ -1,6 +1,6 @@
 jwt:
-  password: df;ajegfenfjdnbafdjiaonen;afgdadfk;ebvnke923384325n9cdnenNIH*W)#ND((CJWENDF
-  expire: 7200000
+  password: dfajegfenfjdnbafdjiaonenafgdadfkebvnke923384325n9cdnenNIH*W)#ND((CJWENDF
+  expire: 9600000
   issuer: com.wang
 server:
   port: 38091

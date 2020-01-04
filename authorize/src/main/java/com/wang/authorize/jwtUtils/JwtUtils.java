@@ -43,15 +43,16 @@ public class JwtUtils {
      **/
     public String createJwt(String jwtId, String receiver, Map<String, Object> custom, String subjet) {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
-        SecretKey secretKey = generateKey();
+        SecretKey secretKey = this.generateKey();
         long now = System.currentTimeMillis();
-        Date date = new Date(now + jwtConstant.expireTime);
+        Date date = new Date(now + jwtConstant.EXPIRETIME);
+        logger.debug(date.toString());
         JwtBuilder builder = Jwts
                 .builder()
                 .setId(jwtId)
                 .setSubject(subjet)
                 .setAudience(receiver)
-                .setIssuer(jwtConstant.issuser)
+                .setIssuer(jwtConstant.ISSUSER)
                 .setClaims(custom)
                 .setExpiration(date)
                 .setIssuedAt(new Date(now))
@@ -68,10 +69,19 @@ public class JwtUtils {
      * @author wangjunhao
      **/
     private SecretKey generateKey() {
-        byte[] encodedKey = Base64.decodeBase64(jwtConstant.password);
+        byte[] encodedKey = Base64.decodeBase64(jwtConstant.SECRET);
         return new SecretKeySpec(encodedKey, 0, encodedKey.length, "AES");
     }
 
+    /**
+     * 解析token
+     *
+     * @param jwt
+     * @return io.jsonwebtoken.Claims
+     * @throws
+     * @Date 2020/1/4 18:30
+     * @Author wangjunhao
+     **/
     public Claims parseJwt(String jwt) {
         SecretKey key = generateKey();
         return Jwts.parser()

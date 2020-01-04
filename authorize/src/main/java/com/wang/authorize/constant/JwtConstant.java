@@ -1,6 +1,5 @@
 package com.wang.authorize.constant;
 
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -18,15 +17,15 @@ public class JwtConstant {
      * 秘钥
      */
     @Value("${jwt.password}")
-    public String password;
+    public String SECRET;
     /**
      * 过期时间
      */
     @Value("${jwt.expire}")
-    public long expireTime;
+    public long EXPIRETIME;
     /**
      * 签发者
      */
     @Value("${jwt.issuer}")
-    public String issuser;
+    public String ISSUSER;
 }
