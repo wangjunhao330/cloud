@@ -22,4 +22,15 @@ public interface LogService {
      **/
     public String getToken(User user);
 
+    /**
+     * 解析token
+     *
+     * @param token
+     * @return com.wang.authorize.entity.User
+     * @throws
+     * @Date 2020/1/5 14:41
+     * @Author wangjunhao
+     **/
+    public User parseToken(String token);
+
 }
