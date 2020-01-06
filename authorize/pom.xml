@@ -8,7 +8,6 @@
 		<version>v1.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.wang</groupId>
 	<artifactId>authorize</artifactId>
 	<version>v1.0.0</version>
 	<name>authorize</name>

@@ -16,5 +16,6 @@
         <module>parent</module>
         <module>eureka-slave</module>
         <module>common</module>
+        <module>search</module>
     </modules>
 </project>
