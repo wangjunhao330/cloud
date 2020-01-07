@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.swing.tree.TreeNode;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,6 +23,7 @@ import java.util.Map;
 public class JwtUtilsTest {
     @Autowired
     private JwtUtils jwtUtils;
+
     @Test
     public void createJwt() {
         Map<String, Object> map = new HashMap<>(8);
@@ -42,4 +42,18 @@ public class JwtUtilsTest {
         System.out.println(claims.getExpiration());
         System.out.println(claims.get("username"));
     }
+
+    private static int reverse(int x) {
+        int[] num = new int[1000];
+        int j = 0, result = 0;
+        while ((x / 10) != 0) {
+            num[j] = x % 10;
+            j++;
+        }
+        for (int i = 0; i < num.length; i++) {
+            result = (int) (result + num[i] * Math.pow(10, i));
+        }
+        return result;
+    }
+
 }

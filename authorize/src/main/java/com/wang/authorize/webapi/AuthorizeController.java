@@ -3,7 +3,6 @@ package com.wang.authorize.webapi;
 import com.wang.authorize.entity.LoginRequest;
 import com.wang.authorize.entity.User;
 import com.wang.authorize.service.LogService;
-import com.wang.common.utils.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -11,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import utils.JsonUtils;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -38,6 +38,7 @@ public class AuthorizeController {
         user.setUsernmae(loginRequest.getUsername());
         user.setPassword(loginRequest.getPassword());
         ResponseEntity entity = new ResponseEntity(logService.getToken(user), HttpStatus.OK);
+
         return JsonUtils.objectToJson(entity);
     }
 

@@ -17,5 +17,6 @@
         <module>eureka-slave</module>
         <module>common</module>
         <module>search</module>
+        <module>commons</module>
     </modules>
 </project>

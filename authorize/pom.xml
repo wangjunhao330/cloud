@@ -5,11 +5,12 @@
 	<parent>
 		<groupId>com.wang</groupId>
 		<artifactId>parent</artifactId>
-		<version>v1.0.0</version>
+		<version>1.0.0.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<artifactId>authorize</artifactId>
 	<version>v1.0.0</version>
+	<packaging>jar</packaging>
 	<name>authorize</name>
 	<description>认证中心</description>
 
@@ -19,13 +20,13 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-eureka</artifactId>
+			<groupId>com.wang</groupId>
+			<artifactId>commons</artifactId>
+            <version>1.0.0.RELEASE</version>
 		</dependency>
 		<dependency>
-			<groupId>com.wang</groupId>
-			<artifactId>common</artifactId>
-            <version>v1.0.0</version>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
 		</dependency>
 		<dependency>
 			 <groupId>io.jsonwebtoken</groupId>

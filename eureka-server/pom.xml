@@ -11,7 +11,7 @@
 	<parent>
 		<groupId>com.wang</groupId>
 		<artifactId>parent</artifactId>
-		<version>v1.0.0</version>
+		<version>1.0.0.RELEASE</version>
 	</parent>
 	<properties>
 		<java.version>1.8</java.version>

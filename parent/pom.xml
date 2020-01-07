@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wang</groupId>
     <artifactId>parent</artifactId>
-    <version>v1.0.0</version>
+    <version>1.0.0.RELEASE</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -44,6 +44,7 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
+                <version>6.0.6</version>
             </dependency>
             <!--lombok-->
             <dependency>

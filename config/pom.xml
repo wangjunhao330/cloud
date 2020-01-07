@@ -10,7 +10,7 @@
 
 	<parent>
 		<groupId>com.wang</groupId>
-		<version>v1.0.0</version>
+		<version>1.0.0.RELEASE</version>
 		<artifactId>parent</artifactId>
 	</parent>
 	<properties>
