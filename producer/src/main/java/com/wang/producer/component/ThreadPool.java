@@ -1,5 +1,8 @@
 package com.wang.producer.component;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -14,26 +17,31 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @date 2020/4/27 15:10
  * @since JDK 1.8
  */
+@Configuration
 public class ThreadPool {
+    private static final int cpu = Runtime.getRuntime().availableProcessors();
+    private static class Singleton {
+        private static final ThreadPoolExecutor pool = new ThreadPoolExecutor(cpu,
+                cpu*2,
+                60,
+                TimeUnit.SECONDS,
+                new LinkedBlockingQueue<Runnable>(10),
+                new ThreadFactory() {
+                    AtomicInteger atomicInteger = new AtomicInteger(1);
+                    @Override
+                    public Thread newThread(Runnable r) {
+                        SecurityManager s = System.getSecurityManager();
+                        ThreadGroup threadGroup = (s != null) ? s.getThreadGroup() : Thread.currentThread().getThreadGroup();
+                        return new Thread(threadGroup,r,"Thread-"+atomicInteger.getAndIncrement());
+                    }
+                });
 
-//    private static final int cpu = Runtime.getRuntime().availableProcessors();
-//    private static final ThreadPoolExecutor pool = new ThreadPoolExecutor(cpu,
-//            cpu * 2,
-//            60,
-//            TimeUnit.SECONDS,
-//            new LinkedBlockingQueue<>(10),
-//            new ThreadFactory() {
-//                @Override
-//                public Thread newThread(Runnable r) {
-//                    Thread thread = new Thread("自定义线程池");
-//                    thread.setPriority(5);
-//                    return thread;
-//                }
-//            });
-//
-//    public static ThreadPoolExecutor getThreadPoolExecutor() {
-//        return pool;
-//    }
+    }
+
+    @Bean
+    public ThreadPoolExecutor getThreadPool() {
+        return Singleton.pool;
+    }
 
     /**
      * 获取单例的普通线程池
